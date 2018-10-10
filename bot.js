@@ -1,7 +1,18 @@
-var token = '688362524:AAG8GLPncBRbZtApF7uOK8rEe4u9EXbOCw4';
+var token = process.env.HEROKU_TOKEN ;//'688362524:AAG8GLPncBRbZtApF7uOK8rEe4u9EXbOCw4';
 
-var Bot = require('node-telegram-bot-api'),
-    bot = new Bot(token, { polling: true });
+const Bot = require('node-telegram-bot-api');
+let bot;
+if(process.env.NODE_ENV === 'production') {
+  bot = new Bot(token);
+  bot.setWebHook(process.env.HEROKU_URL + bot.token);
+}
+else {
+  bot = new Bot(token, { polling: true });
+}
+
+
+
+# $HEROKU_URL
 
 console.log('bot server started...');
 
@@ -23,3 +34,14 @@ bot.onText(/^\/sum((\s+\d+)+)$/, function (msg, match) {
     // reply sent!
   });
 });
+
+//Rasm Jo'natish
+bot.onText(/\/photo/, msg =>{
+    bot.sendPhoto(msg.chat.id,'https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg',{
+        caption:'Izoh'
+    })
+})
+
+if ((msg.text !== '/start')||(msg.text !== '/photo')){
+    bot.sendMessage(msg.chat.id, msg.text)
+}
