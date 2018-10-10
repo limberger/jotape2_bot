@@ -42,6 +42,6 @@ bot.onText(/\/photo/, msg =>{
     })
 });
 
-if ((msg.text !== '/start')||(msg.text !== '/photo')){
-    bot.sendMessage(msg.chat.id, msg.text)
-}
+// if ((msg.text !== '/start')||(msg.text !== '/photo')){
+//     bot.sendMessage(msg.chat.id, msg.text)
+// }
