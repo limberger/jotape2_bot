@@ -5,6 +5,7 @@ var Bot = require('node-telegram-bot-api'),
 
 console.log('bot server started...');
 
+// hello command
 bot.onText(/^\/say_hello (.+)$/, function (msg, match) {
   var name = match[1];
   bot.sendMessage(msg.chat.id, 'Hello ' + name + '!').then(function () {
@@ -12,7 +13,7 @@ bot.onText(/^\/say_hello (.+)$/, function (msg, match) {
   });
 });
 
-
+// sum command
 bot.onText(/^\/sum((\s+\d+)+)$/, function (msg, match) {
   var result = 0;
   match[1].trim().split(/\s+/).forEach(function (i) {
