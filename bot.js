@@ -11,8 +11,6 @@ else {
   bot = new Bot(token, { polling: true });
 }
 
-
-
 //# $HEROKU_URL
 
 console.log('bot server started...');
@@ -46,3 +44,5 @@ bot.onText(/\/photo/, msg =>{
 // if ((msg.text !== '/start')||(msg.text !== '/photo')){
 //     bot.sendMessage(msg.chat.id, msg.text)
 // }
+
+module.exports = bot;
