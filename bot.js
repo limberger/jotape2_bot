@@ -40,7 +40,7 @@ bot.onText(/\/photo/, msg =>{
     bot.sendPhoto(msg.chat.id,'https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg',{
         caption:'Izoh'
     })
-})
+});
 
 if ((msg.text !== '/start')||(msg.text !== '/photo')){
     bot.sendMessage(msg.chat.id, msg.text)
