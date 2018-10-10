@@ -12,7 +12,7 @@ else {
 
 
 
-# $HEROKU_URL
+//# $HEROKU_URL
 
 console.log('bot server started...');
 
