@@ -9,6 +9,7 @@ if(process.env.NODE_ENV === 'production') {
 }
 else {
   bot = new Bot(token, { polling: true });
+  console.log("polling setado")
 }
 
 //# $HEROKU_URL
