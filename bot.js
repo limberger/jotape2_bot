@@ -4,9 +4,10 @@ const Bot = require('node-telegram-bot-api');
 let bot;
 if(process.env.NODE_ENV === 'production') {
   console.log("production .... ")
+  console.log(process.env.HEROKU_URL  + bot.token)
   bot = new Bot(token);
-  bot.setWebHook(process.env.HEROKU_URL + bot.token);
-  console.log("Webhook setado " + process.env.HEROKU_URL + bot.token )
+  bot.setWebHook(process.env.HEROKU_URL );
+  console.log("Webhook setado " + process.env.HEROKU_URL )
 }
 else {
   bot = new Bot(token, { polling: true });
